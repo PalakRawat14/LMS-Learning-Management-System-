@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --container-max: 1024px;
+}
+
+.dark {
+  --bg: #111827;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+}
+
+/* Minimal project base styles (kept alongside Tailwind) */
+* { box-sizing: border-box; }
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: 1rem; }
+h1, h2, h3, h4, h5, h6 { margin: 0 0 0.5rem 0; font-weight: 600; }
+p { margin: 0 0 1rem 0; color: var(--muted); }
+button { font: inherit; }

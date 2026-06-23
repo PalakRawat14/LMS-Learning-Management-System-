@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: lms-server
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm --prefix server install && npm --prefix client install && npm --prefix client run build
+    startCommand: npm --prefix server start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DB_DIALECT
+        value: postgres
+      - key: DB_PORT
+        value: 5432
+    previewPlanChanges: true
+    maxNpmInstallRetries: 3
+
+  - type: pserv
+    name: lms-db
+    env: postgres
+    plan: free
+    region: oregon
+    ipAllowList: []
+    postgresMajorVersion: 15
